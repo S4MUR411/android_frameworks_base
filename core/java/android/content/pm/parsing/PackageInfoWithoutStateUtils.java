@@ -678,25 +678,25 @@ public class PackageInfoWithoutStateUtils {
         // @formatter:off
         if (pkg instanceof ParsingPackageImpl) {
             ParsingPackageImpl pkgi = (ParsingPackageImpl) pkg;
-            return flag(pkgi.externalStorage, ApplicationInfo.FLAG_EXTERNAL_STORAGE)
-                    | flag(pkgi.baseHardwareAccelerated, ApplicationInfo.FLAG_HARDWARE_ACCELERATED)
-                    | flag(pkgi.allowBackup, ApplicationInfo.FLAG_ALLOW_BACKUP)
-                    | flag(pkgi.killAfterRestore, ApplicationInfo.FLAG_KILL_AFTER_RESTORE)
-                    | flag(pkgi.restoreAnyVersion, ApplicationInfo.FLAG_RESTORE_ANY_VERSION)
-                    | flag(pkgi.fullBackupOnly, ApplicationInfo.FLAG_FULL_BACKUP_ONLY)
-                    | flag(pkgi.persistent, ApplicationInfo.FLAG_PERSISTENT)
-                    | flag(pkgi.debuggable, ApplicationInfo.FLAG_DEBUGGABLE)
-                    | flag(pkgi.vmSafeMode, ApplicationInfo.FLAG_VM_SAFE_MODE)
-                    | flag(pkgi.hasCode, ApplicationInfo.FLAG_HAS_CODE)
-                    | flag(pkgi.allowTaskReparenting, ApplicationInfo.FLAG_ALLOW_TASK_REPARENTING)
-                    | flag(pkgi.allowClearUserData, ApplicationInfo.FLAG_ALLOW_CLEAR_USER_DATA)
-                    | flag(pkgi.largeHeap, ApplicationInfo.FLAG_LARGE_HEAP)
-                    | flag(pkgi.usesCleartextTraffic, ApplicationInfo.FLAG_USES_CLEARTEXT_TRAFFIC)
-                    | flag(pkgi.supportsRtl, ApplicationInfo.FLAG_SUPPORTS_RTL)
-                    | flag(pkgi.testOnly, ApplicationInfo.FLAG_TEST_ONLY)
-                    | flag(pkgi.multiArch, ApplicationInfo.FLAG_MULTIARCH)
-                    | flag(pkgi.extractNativeLibs, ApplicationInfo.FLAG_EXTRACT_NATIVE_LIBS)
-                    | flag(pkgi.game, ApplicationInfo.FLAG_IS_GAME)
+return flag(pkgi.isExternalStorage(), ApplicationInfo.FLAG_EXTERNAL_STORAGE)
+                    | flag(pkgi.isBaseHardwareAccelerated(), ApplicationInfo.FLAG_HARDWARE_ACCELERATED)
+                    | flag(pkgi.isAllowBackup(), ApplicationInfo.FLAG_ALLOW_BACKUP)
+                    | flag(pkgi.isKillAfterRestore(), ApplicationInfo.FLAG_KILL_AFTER_RESTORE)
+                    | flag(pkgi.isRestoreAnyVersion(), ApplicationInfo.FLAG_RESTORE_ANY_VERSION)
+                    | flag(pkgi.isFullBackupOnly(), ApplicationInfo.FLAG_FULL_BACKUP_ONLY)
+                    | flag(pkgi.isPersistent(), ApplicationInfo.FLAG_PERSISTENT)
+                    | flag(pkgi.isDebuggable(), ApplicationInfo.FLAG_DEBUGGABLE)
+                    | flag(pkgi.isVmSafeMode(), ApplicationInfo.FLAG_VM_SAFE_MODE)
+                    | flag(pkgi.isHasCode(), ApplicationInfo.FLAG_HAS_CODE)
+                    | flag(pkgi.isAllowTaskReparenting(), ApplicationInfo.FLAG_ALLOW_TASK_REPARENTING)
+                    | flag(pkgi.isAllowClearUserData(), ApplicationInfo.FLAG_ALLOW_CLEAR_USER_DATA)
+                    | flag(pkgi.isLargeHeap(), ApplicationInfo.FLAG_LARGE_HEAP)
+                    | flag(pkgi.isUsesCleartextTraffic(), ApplicationInfo.FLAG_USES_CLEARTEXT_TRAFFIC)
+                    | flag(pkgi.isSupportsRtl(), ApplicationInfo.FLAG_SUPPORTS_RTL)
+                    | flag(pkgi.isTestOnly(), ApplicationInfo.FLAG_TEST_ONLY)
+                    | flag(pkgi.isMultiArch(), ApplicationInfo.FLAG_MULTIARCH)
+                    | flag(pkgi.isExtractNativeLibs(), ApplicationInfo.FLAG_EXTRACT_NATIVE_LIBS)
+                    | flag(pkgi.isGame(), ApplicationInfo.FLAG_IS_GAME)
                     | flag(pkgi.isSupportsSmallScreens(), ApplicationInfo.FLAG_SUPPORTS_SMALL_SCREENS)
                     | flag(pkgi.isSupportsNormalScreens(), ApplicationInfo.FLAG_SUPPORTS_NORMAL_SCREENS)
                     | flag(pkgi.isSupportsLargeScreens(), ApplicationInfo.FLAG_SUPPORTS_LARGE_SCREENS)
@@ -740,26 +740,25 @@ public class PackageInfoWithoutStateUtils {
         Boolean resizeableActivity;
         if (pkg instanceof ParsingPackageImpl) {
             ParsingPackageImpl pkgi = (ParsingPackageImpl) pkg;
-            privateFlags = flag(pkgi.staticSharedLibrary, ApplicationInfo.PRIVATE_FLAG_STATIC_SHARED_LIBRARY)
-                    | flag(pkgi.overlay, ApplicationInfo.PRIVATE_FLAG_IS_RESOURCE_OVERLAY)
-                    | flag(pkgi.isolatedSplitLoading, ApplicationInfo.PRIVATE_FLAG_ISOLATED_SPLIT_LOADING)
-                    | flag(pkgi.hasDomainUrls, ApplicationInfo.PRIVATE_FLAG_HAS_DOMAIN_URLS)
-                    | flag(pkgi.profileableByShell, ApplicationInfo.PRIVATE_FLAG_PROFILEABLE_BY_SHELL)
-                    | flag(pkgi.backupInForeground, ApplicationInfo.PRIVATE_FLAG_BACKUP_IN_FOREGROUND)
-                    | flag(pkgi.useEmbeddedDex, ApplicationInfo.PRIVATE_FLAG_USE_EMBEDDED_DEX)
-                    | flag(pkgi.defaultToDeviceProtectedStorage, ApplicationInfo.PRIVATE_FLAG_DEFAULT_TO_DEVICE_PROTECTED_STORAGE)
-                    | flag(pkgi.directBootAware, ApplicationInfo.PRIVATE_FLAG_DIRECT_BOOT_AWARE)
-                    | flag(pkgi.partiallyDirectBootAware, ApplicationInfo.PRIVATE_FLAG_PARTIALLY_DIRECT_BOOT_AWARE)
-                    | flag(pkgi.allowClearUserDataOnFailedRestore, ApplicationInfo.PRIVATE_FLAG_ALLOW_CLEAR_USER_DATA_ON_FAILED_RESTORE)
-                    | flag(pkgi.allowAudioPlaybackCapture, ApplicationInfo.PRIVATE_FLAG_ALLOW_AUDIO_PLAYBACK_CAPTURE)
-                    | flag(pkgi.requestLegacyExternalStorage, ApplicationInfo.PRIVATE_FLAG_REQUEST_LEGACY_EXTERNAL_STORAGE)
-                    | flag(pkgi.usesNonSdkApi, ApplicationInfo.PRIVATE_FLAG_USES_NON_SDK_API)
-                    | flag(pkgi.hasFragileUserData, ApplicationInfo.PRIVATE_FLAG_HAS_FRAGILE_USER_DATA)
-                    | flag(pkgi.cantSaveState, ApplicationInfo.PRIVATE_FLAG_CANT_SAVE_STATE)
-                    | flag(pkgi.resizeableActivityViaSdkVersion, ApplicationInfo.PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION)
-                    | flag(pkgi.allowNativeHeapPointerTagging, ApplicationInfo.PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING);
-
-            resizeableActivity = pkgi.resizeableActivity;
+privateFlags = flag(pkgi.isStaticSharedLibrary(), ApplicationInfo.PRIVATE_FLAG_STATIC_SHARED_LIBRARY)
+                    | flag(pkgi.isOverlay(), ApplicationInfo.PRIVATE_FLAG_IS_RESOURCE_OVERLAY)
+                    | flag(pkgi.isIsolatedSplitLoading(), ApplicationInfo.PRIVATE_FLAG_ISOLATED_SPLIT_LOADING)
+                    | flag(pkgi.isHasDomainUrls(), ApplicationInfo.PRIVATE_FLAG_HAS_DOMAIN_URLS)
+                    | flag(pkgi.isProfileableByShell(), ApplicationInfo.PRIVATE_FLAG_PROFILEABLE_BY_SHELL)
+                    | flag(pkgi.isBackupInForeground(), ApplicationInfo.PRIVATE_FLAG_BACKUP_IN_FOREGROUND)
+                    | flag(pkgi.isUseEmbeddedDex(), ApplicationInfo.PRIVATE_FLAG_USE_EMBEDDED_DEX)
+                    | flag(pkgi.isDefaultToDeviceProtectedStorage(), ApplicationInfo.PRIVATE_FLAG_DEFAULT_TO_DEVICE_PROTECTED_STORAGE)
+                    | flag(pkgi.isDirectBootAware(), ApplicationInfo.PRIVATE_FLAG_DIRECT_BOOT_AWARE)
+                    | flag(pkgi.isPartiallyDirectBootAware(), ApplicationInfo.PRIVATE_FLAG_PARTIALLY_DIRECT_BOOT_AWARE)
+                    | flag(pkgi.isAllowClearUserDataOnFailedRestore(), ApplicationInfo.PRIVATE_FLAG_ALLOW_CLEAR_USER_DATA_ON_FAILED_RESTORE)
+                    | flag(pkgi.isAllowAudioPlaybackCapture(), ApplicationInfo.PRIVATE_FLAG_ALLOW_AUDIO_PLAYBACK_CAPTURE)
+                    | flag(pkgi.isRequestLegacyExternalStorage(), ApplicationInfo.PRIVATE_FLAG_REQUEST_LEGACY_EXTERNAL_STORAGE)
+                    | flag(pkgi.isUsesNonSdkApi(), ApplicationInfo.PRIVATE_FLAG_USES_NON_SDK_API)
+                    | flag(pkgi.isHasFragileUserData(), ApplicationInfo.PRIVATE_FLAG_HAS_FRAGILE_USER_DATA)
+                    | flag(pkgi.isCantSaveState(), ApplicationInfo.PRIVATE_FLAG_CANT_SAVE_STATE)
+                    | flag(pkgi.isResizeableActivityViaSdkVersion(), ApplicationInfo.PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION)
+                    | flag(pkgi.isAllowNativeHeapPointerTagging(), ApplicationInfo.PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING);
+            resizeableActivity = pkgi.getResizeableActivity();
         } else {
             privateFlags = flag(pkg.isStaticSharedLibrary(), ApplicationInfo.PRIVATE_FLAG_STATIC_SHARED_LIBRARY)
                     | flag(pkg.isOverlay(), ApplicationInfo.PRIVATE_FLAG_IS_RESOURCE_OVERLAY)
@@ -779,7 +778,6 @@ public class PackageInfoWithoutStateUtils {
                     | flag(pkg.isCantSaveState(), ApplicationInfo.PRIVATE_FLAG_CANT_SAVE_STATE)
                     | flag(pkg.isResizeableActivityViaSdkVersion(), ApplicationInfo.PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION)
                     | flag(pkg.isAllowNativeHeapPointerTagging(), ApplicationInfo.PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING);
-
             resizeableActivity = pkg.getResizeableActivity();
         }
         // @formatter:on
